@@ -15,6 +15,7 @@ type TagsRepo struct {
 }
 
 func NewTagsRepo(db GSQL) TagsRepo {
+	db.AutoMigrate(&tagsGORM{})
 	return TagsRepo{db: db}
 }
 
