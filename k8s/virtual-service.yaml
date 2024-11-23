@@ -1,16 +1,16 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: template-service
+  name: tags-service
 spec:
   hosts:
-  - template-service
+  - tags-service
   http:
   - match:
     - uri:
-        prefix: /template.templateService
+        prefix: /tags.TagsService
     route:
     - destination:
-        host: template-service
+        host: tags-service
         port:
           number: 3001

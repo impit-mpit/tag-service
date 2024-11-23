@@ -1,15 +1,16 @@
 package infra
 
 import (
-	"neuro-most/template-service/config"
-	"neuro-most/template-service/internal/adapters/repo"
-	"neuro-most/template-service/internal/infra/database"
+	"neuro-most/tags-service/config"
+	"neuro-most/tags-service/internal/adapters/repo"
+	"neuro-most/tags-service/internal/infra/database"
+	"neuro-most/tags-service/internal/infra/router"
 )
 
 type app struct {
-	cfg config.Config
-	// router router.Router
-	db repo.GSQL
+	cfg    config.Config
+	router router.Router
+	db     repo.GSQL
 }
 
 func Config(cfg config.Config) *app {
@@ -22,10 +23,10 @@ func (a *app) Database() *app {
 }
 
 func (a *app) Serve() *app {
-	// a.router = router.NewRouter(a.db)
+	a.router = router.NewRouter(a.db)
 	return a
 }
 
 func (a *app) Start() {
-	// a.router.Listen()
+	a.router.Listen()
 }
