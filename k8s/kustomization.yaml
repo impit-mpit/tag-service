@@ -6,4 +6,4 @@ resources:
 - deployment.yaml
 images:
 - name: ghcr.io/impit-mpit/tag-service-master
-  newTag: 754d50d
+  newTag: b240a52
